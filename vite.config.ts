@@ -19,4 +19,14 @@ export default defineConfig({
     include: ['test/**/*.test.{ts,tsx}'],
     exclude: [...configDefaults.exclude, 'test/e2e/**'],
   },
+  server: {
+    port: 5173,
+    open: true,
+  },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: 'index.html',
+    },
+  },
 })
