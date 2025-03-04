@@ -21,7 +21,7 @@ export function UsersList() {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20
 
-  if (isLoading) return <Loader size='large' />
+  if (isLoading) return <Loader size='small' />
   if (error) return <p style={{ color: 'red' }}>{error}</p>
 
   const startIndex = (currentPage - 1) * itemsPerPage
