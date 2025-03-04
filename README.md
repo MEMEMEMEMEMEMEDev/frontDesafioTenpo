@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# FRONT DESAFÍO TENPO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Instalación y ejecución
 
-Currently, two official plugins are available:
+Para correr el proyecto en local, sigue estos pasos:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Crea un archivo `.env` en la raíz del proyecto y agrega lo siguiente:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```env
+VITE_API_URL=http://localhost:3000
+VITE_AUTH_URL=http://localhost:3000
+VITE_SECURITY_URL=http://localhost:3000
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instala las dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+npm install
 ```
+
+3. Inicia el proyecto:
+
+```sh
+npm run dev
+```
+
+---
+
+## 🔹 Uso de la aplicación
+
+- **Registro:** Crea una cuenta con email y contraseña cumpliendo las validaciones establecidas.
+- **Inicio de sesión:** Accede con tus credenciales y visualiza la lista de usuarios con paginación.
+- **Autenticación persistente:** Se gestiona con JWT y Refresh Tokens para mantener la sesión activa.
+
+---
+
+## 🛠️ Pruebas
+
+El proyecto está configurado con pruebas unitarias, de integración y end-to-end (e2e):
+
+### 🧪 Pruebas unitarias e integración
+
+```sh
+npm run test
+```
+
+### 🔍 Pruebas end-to-end (e2e)
+
+```sh
+npm run test:e2e
+```
+
+---
+
+## Estrategia de Autenticación y Seguridad
+
+- Se usa **Bearer Tokens** para autenticación en cada solicitud al backend.
+- Implementación de **Refresh Tokens** para renovar el `accessToken` sin necesidad de credenciales nuevamente.
+- Los tokens se manejan en **cookies seguras** y en **memory storage** para prevenir vulnerabilidades.
+
+---
+
+## Estilos
+
+- Se utilizan **Styled Components** para manejar temas dinámicos y aislar estilos en cada componente.
+- Implementación de **modo claro y oscuro** con cambio en tiempo real.
+
+---
+
+## Arquitectura
+
+El proyecto sigue un **enfoque Hexagonal con Vertical Slicing** para mejorar la escalabilidad y modularización:
+
+- **Módulos bien definidos** para cada funcionalidad.
+- **Separación de responsabilidades** entre dominio, infraestructura y aplicación.
+- **Microservicios simulados en NestJS**, facilitando la migración a una arquitectura más robusta.
+
+---
+
+## Manejo de Rutas
+
+- Se utilizan **rutas privadas y públicas** con React Router.
+- Las rutas privadas requieren autenticación y redirigen al usuario si no tiene sesión activa.
+- Gestión de errores y redirecciones para evitar accesos no deseados
