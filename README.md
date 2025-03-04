@@ -82,3 +82,21 @@ El proyecto sigue un **enfoque Hexagonal con Vertical Slicing** para mejorar la 
 - Se utilizan **rutas privadas y públicas** con React Router.
 - Las rutas privadas requieren autenticación y redirigen al usuario si no tiene sesión activa.
 - Gestión de errores y redirecciones para evitar accesos no deseados
+
+## RECUERDA LEVANTAR EL BACKEND A LA VEZ!!
+
+https://github.com/MEMEMEMEMEMEMEDev/backDesafioTenpo
+
+## Sugerencias de mejora
+
+- Implementar paginación en el backend (por ejemplo: GET /users?page=1&limit=20).
+- Usar Lazy Loading y Code Splitting con React.lazy().
+- Optimizar Styled Components mediante Global Styles.
+- Mejorar la cobertura de tests (coverage) y el desarrollo de pruebas.
+- Invalidar el refreshToken en dispositivos sospechosos.
+- Implementar protección CSRF al usar cookies.
+- Aplicar Rate Limiting en la ruta /auth/login.
+- Manejar errores en la UI con mensajes más descriptivos.
+- Incorporar un servicio de logs en el backend.
+- Mejorar la UI
+- Configurar servicio mockeado (json-server/MSW)
