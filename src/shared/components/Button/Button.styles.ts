@@ -9,7 +9,7 @@ export const StyledButton = styled.button<ButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme }) => theme.spacing.large};
   font-size: 24px;
   border-radius: 8px;
   cursor: pointer;
